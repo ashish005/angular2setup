@@ -1,0 +1,54 @@
+:host /deep/ .dk-select {
+  max-width: 100%;
+  font-family: Montserrat, sans-serif;
+  font-size: .929em;
+  min-width: 100px;
+  width: auto; }
+
+:host /deep/ .dk-selected:after {
+  display: none; }
+
+:host /deep/ .dk-selected {
+  color: #263238;
+  border-color: rgba(38, 50, 56, 0.5);
+  padding: 0.15em 1.5em 0.2em 0.5em;
+  border-radius: 2px; }
+
+:host /deep/ .dk-select-open-down .dk-selected, :host /deep/ .dk-selected:focus, :host /deep/ .dk-selected:hover {
+  border-color: #0033a0;
+  color: #0033a0; }
+
+:host /deep/ .dk-selected:before {
+  border-top-color: #263238;
+  border-width: .35em .35em 0; }
+
+:host /deep/ .dk-select-open-down .dk-selected:before,
+:host /deep/ .dk-select-open-up .dk-selected:before {
+  border-bottom-color: #0033a0; }
+
+:host /deep/ .dk-select-multi:focus .dk-select-options,
+:host /deep/ .dk-select-open-down .dk-select-options,
+:host /deep/ .dk-select-open-up .dk-select-options {
+  border-color: rgba(38, 50, 56, 0.2); }
+
+:host /deep/ .dk-select-options .dk-option-highlight {
+  background: #ffffff; }
+
+:host /deep/ .dk-select-options {
+  margin-top: 0.2em;
+  padding: 0;
+  border-radius: 2px;
+  box-shadow: 0px 2px 4px 0px rgba(34, 36, 38, 0.12), 0px 2px 10px 0px rgba(34, 36, 38, 0.08) !important;
+  right: auto;
+  min-width: 100%; }
+
+:host /deep/ .dk-option {
+  color: #263238;
+  padding: 0.16em 0.6em 0.2em 0.5em; }
+  :host /deep/ .dk-option:hover {
+    background-color: rgba(38, 50, 56, 0.12); }
+  :host /deep/ .dk-option:focus {
+    background-color: rgba(38, 50, 56, 0.12); }
+
+:host /deep/ .dk-option-selected {
+  background-color: rgba(0, 0, 0, 0.05) !important; }

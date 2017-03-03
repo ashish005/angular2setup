@@ -1,0 +1,17 @@
+:host > .api-info-wrapper {
+  box-sizing: border-box;
+  padding: 40px;
+  width: 60%; }
+  @media (max-width: 1100px) {
+    :host > .api-info-wrapper {
+      width: 100%; } }
+
+.openapi-button {
+  border: 1px solid #0033a0;
+  color: #0033a0;
+  font-weight: normal;
+  margin-left: 0.5em;
+  padding: 3px 8px 4px; }
+
+:host /deep/ [section] {
+  padding-top: 80px; }

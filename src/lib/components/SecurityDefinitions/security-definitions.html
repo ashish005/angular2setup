@@ -1,0 +1,69 @@
+<div class="security-definition" *ngFor="let def of defs">
+  <h2 class="sharable-header" attr.section="section/Authentication/{{def.name}}">
+    <a class="share-link" href="#section/Authentication/{{def.name}}"></a>{{def.name}}</h2>
+  <div [innerHTML]="def.details.description | marked"></div>
+  <table class="security-details">
+    <tr>
+      <th> Security scheme type: </th>
+      <td>
+          <button (click)="showBasicAuth=1;">{{def.details._displayType}}</button>
+          <h5 *ngIf="acceptedInfo" style="float: right;padding-left: 20px;">{{acceptedInfo}}
+          </h5>
+          <button *ngIf="acceptedInfo" style="position: absolute;padding: 0px 2px;margin-top: -32px;margin-left: 130px;" (click)="clearCache()">x</button>
+      </td>
+    </tr>
+    <tr *ngIf="def.details.type === 'apiKey'">
+      <th> {{def.details.in}} parameter name:</th>
+      <td> {{def.details.name}} </td>
+    </tr>
+    <template [ngIf]="def.details.type === 'oauth2'">
+      <tr>
+        <th> OAuth2 Flow</th>
+        <td> {{def.details.flow}} </td>
+      </tr>
+      <tr *ngIf="def.details.flow === 'implicit' || def.details.flow === 'accessCode'">
+        <th> Authorization URL </th>
+        <td> {{def.details.authorizationUrl}} </td>
+      </tr>
+      <tr *ngIf="def.details.flow !== 'implicit'">
+        <th> Token URL </th>
+        <td> {{def.details.tokenUrl}} </td>
+      </tr>
+        </template>
+    </table>
+    <template [ngIf]="def.details.type === 'oauth2'">
+        <h3> OAuth2 Scopes </h3>
+        <table class="security-scopes-details">
+            <tr *ngFor="let scopeName of def.details.scopes | keys">
+                <th> {{scopeName}}</th>
+                <td> {{def.details.scopes[scopeName]}}</td>
+            </tr>
+        </table>
+  </template>
+    <form [formGroup]="authForm" (ngSubmit)="submitForm(authForm.value); this.showBasicAuth = 0;" style="margin-top: 10px;" *ngIf="showBasicAuth">
+        <table style="display: inline-table;" class="params-wrap params-array">
+            <tr class="param">
+                <td class="param-name">
+                    <span class="param-name-wrap param-name-content">User Name: <span *ngIf="authForm.controls.user.errors" style="color:red;">*</span> </span>
+                </td>
+                <td class="param-info">
+                    <input type="text" formControlName="user" style="width: 100%;">
+                </td>
+            </tr>
+            <tr class="param">
+                <td class="param-name">
+                    <span class="param-name-wrap param-name-content">Password: <span *ngIf="authForm.controls.password.errors" style="color:red;">*</span> </span>
+                </td>
+                <td class="param-info">
+                    <input type="password" formControlName="password" style="width: 100%;">
+                </td>
+            </tr>
+            <tr>
+                <td colspan="2">
+                    <button type="submit" [disabled]="!authForm.valid">Submit</button>
+                    <button type="button" (click)="showBasicAuth=0;">Cancel</button>
+                </td>
+            </tr>
+        </table>
+    </form>
+</div>

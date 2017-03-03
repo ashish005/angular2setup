@@ -1,0 +1,11 @@
+<div #mobile class="mobile-nav" (click)="toggleMobileNav()">
+  <span class="selected-item-info">
+    <span class="selected-tag"> {{activeCatCaption}} </span>
+    <span class="selected-endpoint">{{activeItemCaption}}</span>
+  </span>
+</div>
+<div #desktop id="resources-nav">
+  <ul class="menu-root">
+    <side-menu-items [items]="menuItems" (activate)="activateAndScroll($event)"></side-menu-items>
+  </ul>
+</div>

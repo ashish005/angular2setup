@@ -1,0 +1,140 @@
+/**************************************
+Colors
+**************************************/
+/**************************************
+Options
+**************************************/
+/**************************************
+Sizes / Spacing
+**************************************/
+/**************************************
+Grid
+**************************************/
+/**************************************
+Typo
+**************************************/
+/**************************************
+Table
+**************************************/
+/**************************************
+Buttons
+**************************************/
+/**************************************
+Forms
+**************************************/
+/**************************************
+Dropdown
+**************************************/
+/**************************************
+Z-index
+**************************************/
+/**************************************
+Navbar
+**************************************/
+/**************************************
+Navs
+**************************************/
+/**************************************
+pagination
+**************************************/
+/**************************************
+Jumbotron
+**************************************/
+/**************************************
+State
+**************************************/
+/**************************************
+Cards
+**************************************/
+/**************************************
+Tooltip
+**************************************/
+/**************************************
+Popover
+**************************************/
+/**************************************
+Tags
+**************************************/
+/**************************************
+Modal
+**************************************/
+/**************************************
+Alert
+**************************************/
+/**************************************
+Progress
+**************************************/
+/**************************************
+List
+**************************************/
+/**************************************
+Tuumbnail
+**************************************/
+.platform-banner {
+  background-image: url(../assets/images/bg/platform_bg.png);
+  min-height: 380px;
+  text-align: center;
+  position: relative;
+  background-size: cover;
+  background-position: center; }
+  .platform-banner h2 {
+    color: #fff; }
+  .platform-banner .hero-heading {
+    margin: 0;
+    padding: 0;
+    position: absolute;
+    top: 50%;
+    left: 0;
+    right: 0;
+    transform: translateY(-50%);
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%); }
+
+.platform-container {
+  background: #f7f7f9; }
+  .platform-container h2 {
+    position: relative; }
+    .platform-container h2:after {
+      content: "";
+      display: block;
+      height: 2px;
+      width: 30px;
+      position: absolute;
+      left: 50%;
+      margin-left: -11px;
+      bottom: 0;
+      background: #000;
+      border-bottom: 1px solid #000; }
+  .platform-container .service-table {
+    padding-top: 50px; }
+    .platform-container .service-table .service-box {
+      background: #FFF;
+      padding: 20px 20px 0 20px;
+      margin-bottom: 30px;
+      min-height: 438px; }
+      .platform-container .service-table .service-box .service-icon {
+        color: #1abc9c;
+        font-size: 36px; }
+    .platform-container .service-table h3 {
+      margin: 0;
+      padding: 11px 0 0 0;
+      font-size: 17px;
+      line-height: 1.304347826086957em;
+      text-transform: uppercase;
+      font-weight: 600; }
+    .platform-container .service-table .icon {
+      color: #1abc9c;
+      font-size: 3em;
+      line-height: 1em;
+      padding: 25px 0; }
+    .platform-container .service-table ul {
+      list-style: none;
+      margin: 0 -20px;
+      padding: 0; }
+      .platform-container .service-table ul li {
+        padding: 9px 20px;
+        border-bottom: 1px solid #f6f6f6;
+        color: #818181;
+        font-size: 14px; }
+        .platform-container .service-table ul li:last-child {
+          border-bottom: none; }

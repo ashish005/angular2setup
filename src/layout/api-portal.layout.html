@@ -1,0 +1,65 @@
+<section class="wrapper header-padd">
+  <nav class="navbar navbar-full px-0 py-1 navbar-fixed-top navbar-dark bg-inverse">
+    <div class="container">
+      <a class="navbar-brand py-0 logo-whitetxt-md" routerLink="/"></a>
+      <button class="navbar-toggler float-xs-right hidden-lg-up" type="button" data-toggle="collapse"
+              data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+              aria-label="Toggle navigation"></button>
+      <div class="clearfix hidden-lg-up"></div>
+      <div class="collapse clearfix navbar-toggleable-md" id="navbarResponsive">
+        <ul class="nav navbar-nav text-uppercase float-lg-right nav-main">
+          <li class="nav-item mr-3 ml-0" routerLinkActive="active">
+            <a class="nav-link" routerLink="/hub">Wize Hub <span class="tm-txt">&trade;</span><span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item mr-3 ml-0" routerLinkActive="active">
+            <a class="nav-link" routerLink="/platform">Wize Platform <span class="tm-txt">&trade;</span></a>
+          </li>
+          <li class="nav-item mr-3 ml-0" routerLinkActive="active">
+            <a class="nav-link" routerLink="/company">Company</a>
+          </li>
+          <li class="nav-item mr-3 ml-0" routerLinkActive="active">
+            <a class="nav-link" routerLink="/contact">Contact</a>
+          </li>
+          <li class="nav-item pl-3 ml-0 login-link">
+            <a class="nav-link" routerLink="/login">Log in</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+  <main class="wrapper" style="margin-top: 60px;">
+    <router-outlet></router-outlet>
+  </main>
+  <footer class="footer pt-3 pb-1">
+    <div class="container">
+      <div class="row">
+        <div class="f-logo col-sm-2 wiz-com-footer-wizni-logo"><span class="wizni-logo"></span></div>
+        <div class="col-sm-8 wiz-com-footer-social-lnk text-xs-center">
+          <ul class="nav-justified f-nav text-xs-center list-inline">
+            <li class="list-inline-item mr-3">
+              <a style="text-decoration: none" routerLink="/hub" routerLinkActive="active">Wize Hub&trade;</a></li>
+            <li class="list-inline-item mr-3">
+              <a style="text-decoration: none" routerLink="/platform"
+                 routerLinkActive="active">Wize Platform&trade;</a></li>
+            <li class="list-inline-item mr-3">
+              <a style="text-decoration: none" routerLink="/company"
+                 routerLinkActive="active">Company</a></li>
+            <li class="list-inline-item">
+              <a style="text-decoration: none" routerLink="/contact"
+                 routerLinkActive="active">Contact</a></li>
+          </ul>
+          <ul class="social-links list-inline text-xs-center py-1">
+            <li class="list-inline-item"><a href="https://www.facebook.com/WizniInc/" class="fb-icon mr-1" target="_blank"></a></li>
+            <li class="list-inline-item"><a href="https://twitter.com/wizni" class="twitter-icon mr-1" target="_blank"></a></li>
+            <li class="list-inline-item"><a href="https://www.linkedin.com/company/wizni-inc-" class="linkedin-icon" target="_blank"></a></li>
+          </ul>
+        </div>
+        <div class="col-sm-3">
+        </div>
+      </div>
+      <p class="text-xs-center m-t-2">
+        <small>&copy; 2016 Wizni, Inc. All Rights Reserved. Wizni is a Certified Diverse MBE Supplier.</small>
+      </p>
+    </div>
+  </footer>
+</section>

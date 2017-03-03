@@ -1,0 +1,16 @@
+:host {
+  display: block;
+  background-color: #2D323E !important;
+  height: 80px;
+  text-align: center !important; }
+  @media (max-width: 1000px) {
+    :host {
+      display: none; } }
+
+img {
+  max-height: 150px;
+  width: auto;
+  display: inline-block;
+  max-width: 100px;
+  padding-top: 17px;
+  box-sizing: border-box; }

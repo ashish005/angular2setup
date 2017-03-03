@@ -1,0 +1,87 @@
+<h5 class="param-list-header" *ngIf="params.length"> Parameters </h5>
+<template ngFor [ngForOf]="params" let-paramType="$implicit">
+    <header class="paramType">
+        {{paramType.place}} Parameters
+        <span class="hint--top-right hint--large" [attr.data-hint]="paramType.placeHint">?</span>
+    </header>
+    <div class="params-wrap">
+        <div *ngFor="let param of paramType.params" class="param">
+            <div class="param-name">
+                <span class="param-name-wrap"> {{param.name}} </span>
+            </div>
+            <div class="param-info">
+                <div>
+                    <div>
+                        <div *ngIf="param.type=='integer'">
+                            <input type="number" style="width: 70%;" [required]="param.required"
+                                   [(ngModel)]="param.value">
+                        </div>
+                        <div *ngIf="param.type=='string'">
+                            <input type="text" [required]="param.required" style="width: 70%;"
+                                   [(ngModel)]="param.value">
+                        </div>
+                        <div *ngIf="param.type=='boolean'">
+                            <input type="checkbox" [required]="param.required" [(ngModel)]="param.value">
+                        </div>
+                    </div>
+          <span *ngIf='param.type === "array"'
+                class="param-array-format param-collection-format-{{param.collectionFormat}}">
+            {{param | collectionFormat}}
+          </span>
+                    <span class="param-range" *ngIf="param._range"> {{param._range}} </span>
+                    <div class="param-default" *ngIf="param.default != null">
+                        <span class="param-default-value">{{param.default | json}}</span>
+                    </div>
+                    <div *ngIf="param.enum" class="param-enum">
+                        <span *ngFor="let enumItem of param.enum" class="param-enum-value {{enumItem.type}}"> {{enumItem.val | json}} </span>
+                    </div>
+                    <span *ngIf="param.pattern" class="param-pattern">{{param.pattern}}</span>
+                </div>
+                <div class="param-description" [innerHtml]="param.description | marked"></div>
+            </div>
+        </div>
+    </div>
+</template>
+<div *ngIf="bodyParam">
+    <h5 class="param-list-header" *ngIf="bodyParam"> Request Body </h5>
+    <div class="body-param-description" [innerHtml]="bodyParam.description | marked"></div>
+    <div>
+        <br>
+        <json-schema-lazy [isRequestSchema]="true" [auto]="true" pointer="{{bodyParam._pointer}}/schema"
+                          isEditable="true"></json-schema-lazy>
+    </div>
+</div>
+
+<div *ngIf="serviceResp">
+    <br>
+    <h2 class="responses-list-header"> Responses </h2>
+    <div style="background: #263238;color: white;overflow: auto;">
+        <pre [innerHtml]="serviceResp | jsonFormatter"></pre>
+    </div>
+    <br>
+</div>
+<zippy *ngFor="let response of responses;trackBy:trackByCode" [title]="response.code + ' ' + response.description | marked"
+       [type]="response.type" [(open)]="response.expanded" [empty]="response.empty" (openChange)="lazySchema.load()">
+    <div *ngIf="response.headers" class="response-headers">
+        <header>
+            Headers
+        </header>
+        <div class="header" *ngFor="let header of response.headers">
+            <div class="header-name"> {{header.name}} </div>
+            <div class="header-type {{header.type}}"> {{header._displayType}} {{header._displayFormat}}
+                <span class="header-range" *ngIf="header._range"> {{header._range}} </span>
+            </div>
+            <div *ngIf="header.default" class="header-default"> Default: {{header.default}} </div>
+            <div *ngIf="header.enum" class="header-enum">
+                <span *ngFor="let enumItem of header.enum" class="enum-value {{enumItem.type}}"> {{enumItem.val | json}} </span>
+            </div>
+            <div class="header-description" [innerHtml]="header.description | marked"> </div>
+        </div>
+    </div>
+    <header *ngIf="response.schema">
+        Response Schema
+    </header>
+    <json-schema-lazy [auto]="response.expanded" #lazySchema
+                      pointer="{{response.schema ? response.pointer + '/schema' : null}}">
+    </json-schema-lazy>
+</zippy>

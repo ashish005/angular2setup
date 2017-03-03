@@ -1,0 +1,1185 @@
+swagger: '2.0'
+info:
+  title: Wize Loan Pricer Platform - REST API
+  version: 1.5.0
+  x-logo:
+    url: "https://wizehub.wizeapps.io/assets/images/logo/wizni-whitetxt-md@2x.png"
+  description: |
+    REST API Documentation for Partners to enable Pricing.
+    # Introduction
+    These APIs expose product eligibility and pricing engine functionality to partners.
+    In the current version these APIs are protected by secure 'API-Key'.
+    Please work with partner contact manager to get your credentials. Version
+    2.0 APIs will go live post Q1 2017 will move to token only bearer / token
+    based Authentication.
+
+    </br>
+    ### Terms Of Service
+    ©Wizni, Inc. All Rights Reserved. Wizni Proprietary Information. Unauthorized use is restricted.
+
+    </br>
+
+    ###  <img src="https://screenshot.click/01-50-7b210-rzih8.jpg" alt="Postman" style="width: 50px;"/> Postman Collection
+
+    Postman is an application that simplifies sending HTTP requests to Loan Pricer API endpoints. To begin interacting with the endpoints, simply click the button below and replace the sample variables indicated by `{{ }}` with your actual values.
+
+
+    [![Run in Postman](https://run.pstmn.io/button.svg)](https://app.getpostman.com/run-collection/0599ccf81d14fde544af#?env%5BLoanPricer%5D=W3sia2V5IjoibG9hblByaWNlckJhc2UiLCJ2YWx1ZSI6Imh0dHBzOi8vcHJpY2VyYXBpZGV2LndpemVhcHBzLmlvL2FwaSIsInR5cGUiOiJ0ZXh0IiwiZW5hYmxlZCI6dHJ1ZX1d)
+  contact:
+    name: Wizni Partner Team
+    email: info@wizni.com
+host: pricerapidev.wizeapps.io
+basePath: /api
+securityDefinitions:
+  UserSecurity:
+    type: basic
+    description: HTTP Basic Authentication. Works over `HTTPS`
+security:
+  - UserSecurity: []
+schemes:
+  - https
+consumes:
+  - application/json
+produces:
+  - application/json
+paths:
+  /adjusters:
+    get:
+      description: "Fetch list of adjustment rules\n\nBreaking Change(s)\n\n•\tQuery Parameter “association” NO longer accepts Boolean value. The client needs to send the related Objects that need to be populated or supply [{\"all\":true}] to fetch all the related Objects\n\n•\tRecord identifier “_id” is changed to “id” and is of type Number\n\n•\tResponse format is changed – “records” is changed to “rows” and “total” is updated to “count”\n\n•\tReferenced object’s property name is updated as shown in below sample response"
+      tags:
+        - adjuster
+      operationId: getAdjuster
+      parameters: &ref_5
+        - &ref_0
+          $ref: '#/parameters/where'
+        - &ref_1
+          $ref: '#/parameters/columns'
+        - &ref_2
+          $ref: '#/parameters/order'
+        - &ref_3
+          $ref: '#/parameters/association'
+        - $ref: '#/parameters/offset'
+        - $ref: '#/parameters/limit'
+      responses:
+        '200':
+          description: Response containing total count and array of Adjuster objects
+          schema:
+            type: object
+            properties:
+              rows:
+                type: array
+                items:
+                  $ref: '#/definitions/Adjuster'
+              count:
+                type: integer
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    post:
+      description: Create a new Adjuster object.
+      tags:
+        - adjuster
+      operationId: postAdjuster
+      parameters:
+        - name: object
+          in: body
+          description: An object or array of objects in JSON format
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Adjuster'
+      responses:
+        '201':
+          description: Successfully created a new Adjuster.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Deletes Adjuster objects.
+      tags:
+        - adjuster
+      operationId: deleteAdjuster
+      parameters: &ref_6
+        - $ref: '#/parameters/delete_where'
+      responses:
+        '204':
+          description: Successfully deleted matched all Adjuster objects.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  '/adjusters/{id}':
+    get:
+      description: Fetch a specific Adjuster object.
+      tags:
+        - adjuster
+      operationId: getByIdAdjuster
+      parameters: &ref_7
+        - &ref_4
+          $ref: '#/parameters/id'
+        - *ref_0
+        - *ref_1
+        - *ref_2
+        - *ref_3
+      responses:
+        '200':
+          description: Get a specific Adjuster.
+          schema:
+            $ref: '#/definitions/Adjuster'
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        '404':
+          description: No matching items found
+        default:
+          description: Unexpected error
+    patch:
+      description: Update a specific Adjuster object.
+      tags:
+        - adjuster
+      operationId: patchByIdAdjuster
+      parameters:
+        - $ref: '#/parameters/id'
+        - name: object
+          in: body
+          description: Diff object in JSON format
+          required: true
+          schema:
+            $ref: '#/definitions/Adjuster'
+      responses:
+        '200':
+          description: Successfully updated specific Adjuster.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Delete a specific Adjuster object.
+      tags:
+        - adjuster
+      operationId: deleteByIdAdjuster
+      parameters: &ref_8
+        - *ref_4
+        - $ref: '#/parameters/deleteid_where'
+      responses:
+        '204':
+          description: Successfully deleted specific Adjuster.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  /adjusteroptions:
+    get:
+      description: Fetch list of AdjusterOption objects.
+      tags:
+        - adjusterOption
+      operationId: getAdjusterOption
+      parameters: *ref_5
+      responses:
+        '200':
+          description: Response containing total count and array of AdjusterOption objects
+          schema:
+            type: object
+            properties:
+              rows:
+                type: array
+                items:
+                  $ref: '#/definitions/AdjusterOption'
+              count:
+                type: integer
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    post:
+      description: Create a new AdjusterOption object.
+      tags:
+        - adjusterOption
+      operationId: postAdjusterOption
+      parameters:
+        - name: object
+          in: body
+          description: An object or array of objects in JSON format
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/AdjusterOption'
+      responses:
+        '201':
+          description: Successfully created a new AdjusterOption.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Deletes AdjusterOption objects.
+      tags:
+        - adjusterOption
+      operationId: deleteAdjusterOption
+      parameters: *ref_6
+      responses:
+        '204':
+          description: Successfully deleted matched all AdjusterOption objects.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  '/adjusteroptions/{id}':
+    get:
+      description: Fetch a specific AdjusterOption object.
+      tags:
+        - adjusterOption
+      operationId: getByIdAdjusterOption
+      parameters: *ref_7
+      responses:
+        '200':
+          description: Get a specific AdjusterOption.
+          schema:
+            $ref: '#/definitions/AdjusterOption'
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        '404':
+          description: No matching items found
+        default:
+          description: Unexpected error
+    patch:
+      description: Update a specific AdjusterOption object.
+      tags:
+        - adjusterOption
+      operationId: patchByIdAdjusterOption
+      parameters:
+        - $ref: '#/parameters/id'
+        - name: object
+          in: body
+          description: Diff object in JSON format
+          required: true
+          schema:
+            $ref: '#/definitions/AdjusterOption'
+      responses:
+        '200':
+          description: Successfully updated specific AdjusterOption.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Delete a specific AdjusterOption object.
+      tags:
+        - adjusterOption
+      operationId: deleteByIdAdjusterOption
+      parameters: *ref_8
+      responses:
+        '204':
+          description: Successfully deleted specific AdjusterOption.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  /products:
+    get:
+      description: Fetch list of Product objects.
+      tags:
+        - product
+      operationId: getProduct
+      parameters: *ref_5
+      responses:
+        '200':
+          description: Response containing total count and array of Product objects
+          schema:
+            type: object
+            properties:
+              rows:
+                type: array
+                items:
+                  $ref: '#/definitions/Product'
+              count:
+                type: integer
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    post:
+      description: Create a new Product object.
+      tags:
+        - product
+      operationId: postProduct
+      parameters:
+        - name: object
+          in: body
+          description: An object or array of objects in JSON format
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/Product'
+      responses:
+        '201':
+          description: Successfully created a new Product.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Deletes Product objects.
+      tags:
+        - product
+      operationId: deleteProduct
+      parameters: *ref_6
+      responses:
+        '204':
+          description: Successfully deleted matched all Product objects.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  '/products/{id}':
+    get:
+      description: Fetch a specific Product object.
+      tags:
+        - product
+      operationId: getByIdProduct
+      parameters: *ref_7
+      responses:
+        '200':
+          description: Get a specific Product.
+          schema:
+            $ref: '#/definitions/Product'
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        '404':
+          description: No matching items found
+        default:
+          description: Unexpected error
+    patch:
+      description: Update a specific Product object.
+      tags:
+        - product
+      operationId: patchByIdProduct
+      parameters:
+        - $ref: '#/parameters/id'
+        - name: object
+          in: body
+          description: Diff object in JSON format
+          required: true
+          schema:
+            $ref: '#/definitions/Product'
+      responses:
+        '200':
+          description: Successfully updated specific Product.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Delete a specific Product object.
+      tags:
+        - product
+      operationId: deleteByIdProduct
+      parameters: *ref_8
+      responses:
+        '204':
+          description: Successfully deleted specific Product.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  /productfamilies:
+    get:
+      description: Fetch list of ProductFamily objects.
+      tags:
+        - productFamily
+      operationId: getProductFamily
+      parameters: *ref_5
+      responses:
+        '200':
+          description: Response containing total count and array of ProductFamily objects
+          schema:
+            type: object
+            properties:
+              rows:
+                type: array
+                items:
+                  $ref: '#/definitions/ProductFamily'
+              count:
+                type: integer
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    post:
+      description: Create a new ProductFamily object.
+      tags:
+        - productFamily
+      operationId: postProductFamily
+      parameters:
+        - name: object
+          in: body
+          description: An object or array of objects in JSON format
+          required: false
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/ProductFamily'
+      responses:
+        '201':
+          description: Successfully created a new ProductFamily.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Deletes ProductFamily objects.
+      tags:
+        - productFamily
+      operationId: deleteProductFamily
+      parameters: *ref_6
+      responses:
+        '204':
+          description: Successfully deleted matched all ProductFamily objects.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  '/productfamilies/{id}':
+    get:
+      description: Fetch a specific ProductFamily object.
+      tags:
+        - productFamily
+      operationId: getByIdProductFamily
+      parameters: *ref_7
+      responses:
+        '200':
+          description: Get a specific ProductFamily.
+          schema:
+            $ref: '#/definitions/ProductFamily'
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        '404':
+          description: No matching items found
+        default:
+          description: Unexpected error
+    patch:
+      description: Update a specific ProductFamily object.
+      tags:
+        - productFamily
+      operationId: patchByIdProductFamily
+      parameters:
+        - $ref: '#/parameters/id'
+        - name: object
+          in: body
+          description: Diff object in JSON format
+          required: true
+          schema:
+            $ref: '#/definitions/ProductFamily'
+      responses:
+        '200':
+          description: Successfully updated specific ProductFamily.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Delete a specific ProductFamily object.
+      tags:
+        - productFamily
+      operationId: deleteByIdProductFamily
+      parameters: *ref_8
+      responses:
+        '204':
+          description: Successfully deleted specific ProductFamily.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  /quotes:
+    get:
+      description: Fetch list of Quote objects.
+      tags:
+        - quote
+      operationId: getQuote
+      parameters: *ref_5
+      responses:
+        '200':
+          description: Response containing total count and array of Quote objects
+          schema:
+            type: object
+            properties:
+              rows:
+                type: array
+                items:
+                  $ref: '#/definitions/Quote'
+              count:
+                type: integer
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Deletes Quote objects.
+      tags:
+        - quote
+      operationId: deleteQuote
+      parameters: *ref_6
+      responses:
+        '204':
+          description: Successfully deleted matched all Quote objects.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  '/quotes/{id}':
+    get:
+      description: Fetch a specific Quote object.
+      tags:
+        - quote
+      operationId: getByIdQuote
+      parameters: *ref_7
+      responses:
+        '200':
+          description: Get a specific Quote.
+          schema:
+            $ref: '#/definitions/Quote'
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        '404':
+          description: No matching items found
+        default:
+          description: Unexpected error
+    patch:
+      description: Update a specific Quote object.
+      tags:
+        - quote
+      operationId: patchByIdQuote
+      parameters:
+        - $ref: '#/parameters/id'
+        - name: object
+          in: body
+          description: Diff object in JSON format
+          required: true
+          schema:
+            $ref: '#/definitions/Quote'
+      responses:
+        '200':
+          description: Successfully updated specific Quote.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+    delete:
+      description: Delete a specific Quote object.
+      tags:
+        - quote
+      operationId: deleteByIdQuote
+      parameters: *ref_8
+      responses:
+        '204':
+          description: Successfully deleted specific Quote.
+        '400':
+          description: Error while processing request
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        default:
+          description: Unexpected error
+  /products/search:
+    post:
+      description: "Fetch pricing options\n\nBreaking Change(s)\n\n•\tAttribute “eligibility” in response is updated from type String to List of String objects"
+      operationId: postProductsSearch
+      tags:
+        - products/search
+      parameters:
+        - name: loanFeature
+          in: body
+          description: >-
+            Loan Feature object in JSON format. Optionally, include adjusters
+            object in the JSON body as
+            "adjusters":[{"id":1,"selectedOptionId":3}]
+          required: true
+          schema:
+            $ref: '#/definitions/loanFeature'
+        - $ref: '#/parameters/products'
+        - $ref: '#/parameters/fees'
+      responses:
+        '200':
+          description: An array of pricing options
+          schema:
+            type: array
+            items:
+              $ref: '#/definitions/pricingResult'
+        '400':
+          description: Required loan feature attributes not supplied
+        '401':
+          description: Unauthorized Error
+          schema:
+            $ref: '#/definitions/Unauthorized'
+        '500':
+          description: Error while processing service request
+        default:
+          description: Unexpected error
+definitions:
+  Unauthorized:
+    type: object
+    properties:
+      name:
+        type: string
+      message:
+        type: string
+      status:
+        type: integer
+  Adjuster:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+        maxLength: 255
+      type:
+        type: string
+        maxLength: 255
+      allowMultiple:
+        type: boolean
+      createdBy:
+        type: string
+        maxLength: 255
+      modifiedBy:
+        type: string
+        maxLength: 255
+    required:
+      - name
+      - type
+  AdjusterOption:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      qualification:
+        type: string
+        maxLength: 255
+      adjustment:
+        type: number
+        format: float
+      rule:
+        type: string
+      createdBy:
+        type: string
+        maxLength: 255
+      modifiedBy:
+        type: string
+        maxLength: 255
+      AdjusterId:
+        type: integer
+        format: int32
+    required:
+      - qualification
+      - adjustment
+  Product:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+        maxLength: 255
+      code:
+        type: string
+        maxLength: 255
+      floor:
+        type: number
+        format: float
+      maxDiscount:
+        type: number
+        format: float
+      type:
+        type: string
+        maxLength: 255
+      term:
+        type: integer
+        format: int32
+      interestOnly:
+        type: boolean
+      arm:
+        type: boolean
+      interestOnlyTerm:
+        type: integer
+        format: int32
+      balloonDueIn:
+        type: integer
+        format: int32
+      initialFixedRatePeriod:
+        type: integer
+        format: int32
+      normalRateAdjustmentPeriod:
+        type: integer
+        format: int32
+      firstRateAdjustmentCap:
+        type: number
+        format: float
+      normalRateAdjustmentCap:
+        type: number
+        format: float
+      lifetimeRateDecreaseCap:
+        type: number
+        format: float
+      lifetimeRateIncreaseCap:
+        type: number
+        format: float
+      index:
+        type: number
+        format: float
+      margin:
+        type: number
+        format: float
+      createdBy:
+        type: string
+        maxLength: 255
+      modifiedBy:
+        type: string
+        maxLength: 255
+      ProductFamilyId:
+        type: integer
+        format: int32
+    required:
+      - name
+      - code
+      - term
+      - interestOnly
+  ProductFamily:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      family:
+        type: string
+        maxLength: 255
+      description:
+        type: string
+        maxLength: 255
+      isActive:
+        type: boolean
+      startTime:
+        type: string
+        maxLength: 255
+      endTime:
+        type: string
+        maxLength: 255
+      createdBy:
+        type: string
+        maxLength: 255
+      modifiedBy:
+        type: string
+        maxLength: 255
+    required:
+      - family
+  Quote:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      quote:
+        type: string
+        format: json
+      quoteNumber:
+        type: string
+        maxLength: 255
+      file:
+        type: string
+      sentTo:
+        type: string
+        maxLength: 255
+      sentBy:
+        type: string
+        maxLength: 255
+      sentOn:
+        type: string
+        format: date-time
+      status:
+        type: string
+        maxLength: 255
+      lockedOn:
+        type: string
+        format: date-time
+      lockedBy:
+        type: string
+        maxLength: 255
+      remarks:
+        type: string
+        maxLength: 255
+      createdBy:
+        type: string
+        maxLength: 255
+      modifiedBy:
+        type: string
+        maxLength: 255
+    required:
+      - quote
+      - quoteNumber
+  loanFeature:
+    type: object
+    properties:
+      loanAmount:
+        type: integer
+        format: int32
+      propertyValue:
+        type: integer
+        format: int32
+      propertyUsageType:
+        type: string
+        description: 'Property usage options: PRIMARY_RESIDENCE, SECOND_HOME, INVESTMENT'
+      numberOfUnits:
+        type: integer
+        format: int32
+      loanPurpose:
+        type: string
+        description: 'Loan purpose options: PURCHASE, REFINANCE, CONSTRUCTION_PERM'
+      creditScore:
+        type: integer
+        format: int32
+      CLTV:
+        type: integer
+        format: float
+      guarantorExists:
+        type: boolean
+      lienPosition:
+        type: integer
+        format: int32
+      mortgageType:
+        type: string
+        description: 'Mortgage type options: Conventional, HELOC'
+      loanPurposeType:
+        type: string
+        description: 'Loan purpose type options: PURCHASE, CASH_OUT, RATE_TERM'
+      propertyState:
+        type: string
+      propertyType:
+        type: string
+        description: >-
+          Property type options: SINGLE_FAMILY, CONDOMINIUM, TOWNHOUSE,
+          COOPERATIVE, TWO_TO_FOUR_UNIT_PROPERTY, MULTIFAMILY,
+          MANUFACTURED_OR_MOBILE_HOME, COMMERCIAL_NON_RESIDENTIAL,
+          MIXED_USE_RESIDENTAL, FARM, HOME_AND_BUSINESS_COMBINED, LAND
+      QM:
+        type: boolean
+      adjusters:
+        type: array
+        items:
+          $ref: '#/definitions/selectedAdjuster'
+    required:
+      - loanAmount
+      - propertyValue
+  pricingResult:
+    type: object
+    properties:
+      code:
+        type: string
+      name:
+        type: string
+      eligible:
+        type: boolean
+      eligibility:
+        type: array
+        items:
+          $ref: '#/definitions/eligibilityCriteria'
+      prices:
+        type: array
+        items:
+          $ref: '#/definitions/pricingOption'
+  eligibilityCriteria:
+    type: string
+  selectedAdjuster:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+        description: Selected Adjuster ID
+      selectedOptionId:
+        type: integer
+        format: int32
+        description: Selected Adjuster Option ID
+  pricingOption:
+    type: object
+    properties:
+      product:
+        type: string
+      originalInterestRate:
+        type: number
+        format: float
+      interestRate:
+        type: number
+        format: float
+      totalDiscount:
+        type: number
+        format: float
+      margin:
+        type: number
+        format: float
+      points:
+        type: number
+        format: float
+      prepay:
+        type: string
+      title:
+        type: string
+      minAmount:
+        type: number
+        format: float
+      maxAmount:
+        type: number
+        format: float
+      lockPeriod:
+        type: number
+        format: float
+      lifeCap:
+        type: number
+        format: float
+      lifeFloor:
+        type: number
+        format: float
+      product_one_ref:
+        $ref: '#/definitions/Product'
+      apr:
+        type: number
+        format: float
+      fees:
+        type: array
+        items:
+          $ref: '#/definitions/feeSchedule'
+      price:
+        type: number
+        format: float
+      adjusters:
+        type: array
+        items:
+          $ref: '#/definitions/appliedAdjuster'
+      eligibility:
+        type: array
+        items:
+          $ref: '#/definitions/eligibilityCriteria'
+  appliedAdjuster:
+    type: object
+    properties:
+      id:
+        type: integer
+        format: int32
+      name:
+        type: string
+      adjustment:
+        type: number
+        format: float
+      qualification:
+        type: string
+  feeSchedule:
+    type: object
+    properties:
+      descendingTerm:
+        type: integer
+        format: int32
+      ascendingTerm:
+        type: integer
+        format: int32
+      balance:
+        type: number
+        format: float
+      aprStream:
+        type: number
+        format: float
+parameters:
+  where:
+    name: where
+    in: query
+    description: Filter out results on specific conditions. Default no filtering.
+    required: false
+    type: string
+    format: json
+  columns:
+    name: columns
+    in: query
+    description: >-
+      Selects only specified columns of result set. Default no filtering of
+      columns.
+    required: false
+    type: string
+    format: json
+  order:
+    name: order
+    in: query
+    description: Enable ordering on result set as requested.
+    required: false
+    type: string
+    format: json
+  association:
+    name: association
+    in: query
+    description: Enable inclusion of related data for every object in result set.
+    required: false
+    type: string
+    format: json
+  offset:
+    name: offset
+    in: query
+    description: Offset the list of returned items in by this mark. Default is zero.
+    required: false
+    type: integer
+    format: int32
+  limit:
+    name: limit
+    in: query
+    description: Number of items to retrieve. Default is no limit.
+    required: false
+    type: integer
+    format: int32
+  id:
+    name: id
+    in: path
+    description: Specific ID of the object
+    required: true
+    type: integer
+    format: int64
+  delete_where:
+    name: where
+    in: query
+    description: Delete all matched objects
+    required: true
+    type: string
+  deleteid_where:
+    name: where
+    in: query
+    description: Delete specific object
+    required: false
+    type: string
+  products:
+    name: products
+    in: query
+    description: Supply 1 to include product detail along with Pricing result
+    required: false
+    type: integer
+    format: int32
+  fees:
+    name: fees
+    in: query
+    description: Supply 1 to include fee detail along with Pricing result
+    required: false
+    type: integer
+    format: int32

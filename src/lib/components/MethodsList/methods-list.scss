@@ -1,0 +1,38 @@
+@import '../../shared/styles/variables';
+
+:host {
+  display: block;
+  overflow: hidden;
+}
+
+:host [hidden] {
+  display: none;
+}
+
+.tag-info {
+  padding: $section-spacing;
+  box-sizing: border-box;
+  background-color: white;
+  width: 60%;
+
+  @media (max-width: $right-panel-squash-breakpoint) {
+    width: 100%;
+  }
+}
+
+.tag-info:after, .tag-info:before {
+  content: "";
+  display: table;
+}
+
+.tag-info h1 {
+  color: $headers-color;
+  text-transform: capitalize;
+  font-weight: normal;
+  margin-top: 0;
+}
+
+.methods {
+  display: block;
+  position: relative;;
+}

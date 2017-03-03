@@ -1,0 +1,107 @@
+@import "variables";
+
+
+.nav-main{
+
+  .nav-link{
+    position: relative;
+
+    span{
+      &.tm-txt{
+        position: absolute;
+        top: 6px;
+        right: -10px;
+      }
+    }
+  }
+}
+
+.social-links{
+  a{
+    width:24px;
+    height:24px;
+    display: inline-block;
+
+    &.fb-icon{
+      background: url("../assets/images/fb-icon.jpg") no-repeat;
+      background-size:100%;
+      &:hover{
+        background: url("../assets/images/fb-icon-hover.jpg") no-repeat;
+        background-size:100%;
+      }
+    }
+    &.twitter-icon{
+      background: url("../assets/images/twitter-icon.jpg") no-repeat;
+      background-size:100%;
+      &:hover{
+        background: url("../assets/images/twitter-icon-hover.jpg") no-repeat;
+        background-size:100%;
+      }
+    }
+    &.linkedin-icon{
+      background: url("../assets/images/in-icon.jpg") no-repeat;
+      background-size:100%;
+      &:hover{
+        background: url("../assets/images/in-icon-hover.jpg") no-repeat;
+        background-size:100%;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 991px){
+  .login-link{
+    border:none;
+    padding-left:0 !important;
+  }
+  .nav-main{
+    .nav-item{
+      &.mr-3{margin:0 !important;}
+
+      .nav-link{
+        span{
+          &.tm-txt{
+            right: auto;
+          }
+        }
+      }
+      &.active{
+        .nav-link{
+          background: red;
+          padding: 5px 10px;
+        }
+      }
+    }
+  }
+
+}
+
+@media (max-width: 767px){
+
+  .wiz-com-footer-social-lnk, .wiz-com-footer-wizni-logo{
+    width:100%;
+    text-align: center;
+
+    & > ul:first-child > li.list-inline-item{
+      margin: 0px !important;
+      display: block;
+      text-align: center;
+    }
+  }
+  .wizni-logo{
+    padding-bottom: 2rem;
+    display: block;
+  }
+
+  .nav-link{
+
+    span{
+      &.tm-txt{
+        right: auto;
+      }
+    }
+
+  }
+
+}

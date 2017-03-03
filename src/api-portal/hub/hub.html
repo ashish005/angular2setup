@@ -1,0 +1,57 @@
+<div class="hero-buyers hub-banner">
+  <div class="container py-3">
+    <div class="row">
+      <div class="col-sm-12">
+        <h2 class="hero-heading h1">Wize Hub&trade;</h2>
+        <div class="blocks">
+          <div class="row">
+            <div class="col-md-4">
+              <i><img src="./assets/images/hub/box.png"> </i>
+              <p>Publish or Discover Business Apps</p>
+            </div>
+            <div class="col-md-4">
+              <i><img src="./assets/images/hub/setup.png"></i>
+              <p>Run Pilots in App Sandbox</p>
+            </div>
+            <div class="col-md-4">
+              <i><img src="./assets/images/hub/build.png"> </i>
+              <p>Deploy & Scale to Production</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="article text-xs-center mt-3">
+  <article class="full hub-container">
+    <h2 class="mb-2 pb-1 text-uppercase">App Catalog</h2>
+  </article>
+</div>
+
+<div class="container p-b-3" style="min-height: calc( 100vh - 444px);">
+  <div class="row mt-2 mb-3">
+    <div class="col-lg-3 col-md-4 col-sm-6" *ngFor="let app of apps">
+      <div class="card app-card-container">
+        <div class="p-2">
+          <small class="sol-type" [ngClass]="getBarClass(app.domain)">{{app.domain}}</small>
+          <h6 class="fw-900 text-uppercase mt-1">{{app.name}}</h6>
+          <div class="textBlock"><p class="text-muted">{{app.description}}</p></div>
+        </div>
+        <div class="card-footer">
+          <p class="mb-0">
+            <small>{{app.company}}</small>
+            <i class="pull-right text-muted">
+              <small>{{app.type}}</small>
+            </i></p>
+        </div>
+
+        <div class="card-img-overlay hover-content">
+          <a data-toggle="modal" routerLink="/login" class="btn btn-outline-secondary text-uppercase">Login to
+            Install</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

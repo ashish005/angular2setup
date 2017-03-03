@@ -1,0 +1,23 @@
+@import '../../shared/styles/variables';
+
+:host {
+  display: block;
+  background-color: #2D323E !important;
+  height: 80px;
+  text-align: center !important;
+
+  @media (max-width: $side-menu-mobile-breakpoint) {
+    display: none;
+  }
+}
+
+img {
+  max-height: 150px;
+  width: auto;
+  display: inline-block;
+  //max-width: 100%;
+  //padding: 0 5px;
+  max-width: 100px;
+  padding-top: 17px;
+  box-sizing: border-box;
+}

@@ -1,0 +1,103 @@
+<div class="contanct-container">
+  <div class="mapblock clearfix">
+    <sebm-google-map [latitude]="lat" [longitude]="lng" [zoom]="14" [scrollwheel]="false">
+      <sebm-google-map-marker [latitude]="lat"
+                              [longitude]="lng"
+                              [title]="title"></sebm-google-map-marker>
+    </sebm-google-map>
+  </div>
+  <div class="article module gray">
+    <div class="container py-3 text-xs-center"  style="min-height: calc( 100vh - 444px);">
+      <article class="full">
+        <h2 class="pb-1 mb-2 text-uppercase">Get in touch with us</h2>
+        <p>Say Hello! Don’t be shy.</p>
+        <div class="contactField">
+          <div class="row">
+            <div class="col-md-4">
+
+              <div class="row">
+                <div class="col-sm-6 col-md-12">
+                  <h5 class="m-b-0">CALIFORNIA HQ</h5>
+                  <p class="text">
+                    2430 Camino Ramon, Suite 108<br>
+                    San Ramon, CA 94583</p>
+
+                  <h5 class="m-b-0">MICHIGAN</h5>
+                  <p>
+                    <span class="c-m-t-1">
+                    330 East Liberty, Ann Arbor, <br>
+                    MI 48104<br>
+                    </span>
+                  </p>
+                  <h5 class="m-b-0">NEW DELHI</h5>
+                  <p>
+                    <span class="c-m-t-1">
+                    SCO-14, Sector 23A<br>
+                    Gurgaon, India<br>122017
+                    </span>
+                  </p>
+                </div>
+                <div class="col-sm-6 col-md-12">
+                  <p class="text">
+                    Email: info@wizni.com<br>
+                    Phone: 1-855-GO-WIZNI (1-855-469-4964)<br>
+                    Fax: 1-866-901-3066</p>
+                  <div class="social-link pb-2">
+                    <a href="https://www.facebook.com/WizniInc/" target="_blank" class="fb-link">
+                    </a>
+                    <a href="https://twitter.com/wizni" target="_blank" class="twitter-link"></a>
+                    <a href="https://www.linkedin.com/company/wizni-inc-" target="_blank" class="in-link"></a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="col-md-8">
+              <h5 class="text-uppercase">Contact Us</h5>
+              <form class="formfield" action="https://www.salesforce.com/servlet/servlet.WebToLead?encoding=UTF-8" method="POST">
+                <input type=hidden name="oid" value="00DG0000000Ckmo">
+                <input type=hidden name="retURL" value="http://www.wizni.com/contact/thanks">
+                <div class="row">
+                  <div class="col-sm-4">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="First Name *"
+                             maxlength="40" name="first_name" required>
+                    </div>
+                  </div>
+                  <div class="col-sm-6">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Last Name *"
+                             maxlength="80" name="last_name" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <input type="text" class="form-control" placeholder="Email *"
+                             maxlength="80" name="email" required>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="form-group">
+                      <textarea class="form-control" placeholder="Message"
+                                name="description"></textarea>
+                    </div>
+                  </div>
+                </div>
+                <div class="row">
+                  <div class="col-sm-12">
+                    <div class="text-right">
+                      <button type="submit" class="btn btn-outline-primary btn-black text-uppercase"><span>Contact Us</span></button>
+                    </div>
+                  </div>
+                </div>
+              </form>
+            </div>
+          </div>
+        </div>
+      </article>
+    </div>
+  </div>
+</div>

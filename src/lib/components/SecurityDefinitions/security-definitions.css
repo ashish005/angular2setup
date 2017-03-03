@@ -1,0 +1,27 @@
+:host {
+  display: block; }
+
+.security-definition:not(:last-of-type) {
+  border-bottom: 1px solid rgba(38, 50, 56, 0.3);
+  padding-bottom: 20px; }
+
+:host h2 {
+  padding-top: 40px; }
+
+h3 {
+  margin: 1em 0;
+  font-size: 1em; }
+
+:host .security-scopes-details, :host .security-details {
+  margin-top: 20px; }
+
+table.details th, table.details td {
+  font-weight: bold;
+  width: 200px;
+  max-width: 50%; }
+
+table.details th {
+  text-align: left;
+  padding: 6px;
+  text-transform: capitalize;
+  font-weight: normal; }

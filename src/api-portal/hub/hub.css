@@ -1,0 +1,160 @@
+/**************************************
+Colors
+**************************************/
+/**************************************
+Options
+**************************************/
+/**************************************
+Sizes / Spacing
+**************************************/
+/**************************************
+Grid
+**************************************/
+/**************************************
+Typo
+**************************************/
+/**************************************
+Table
+**************************************/
+/**************************************
+Buttons
+**************************************/
+/**************************************
+Forms
+**************************************/
+/**************************************
+Dropdown
+**************************************/
+/**************************************
+Z-index
+**************************************/
+/**************************************
+Navbar
+**************************************/
+/**************************************
+Navs
+**************************************/
+/**************************************
+pagination
+**************************************/
+/**************************************
+Jumbotron
+**************************************/
+/**************************************
+State
+**************************************/
+/**************************************
+Cards
+**************************************/
+/**************************************
+Tooltip
+**************************************/
+/**************************************
+Popover
+**************************************/
+/**************************************
+Tags
+**************************************/
+/**************************************
+Modal
+**************************************/
+/**************************************
+Alert
+**************************************/
+/**************************************
+Progress
+**************************************/
+/**************************************
+List
+**************************************/
+/**************************************
+Tuumbnail
+**************************************/
+.hero-buyers {
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  text-align: center;
+  color: #fff; }
+  .hero-buyers i {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto;
+    display: block;
+    position: relative;
+    margin-bottom: 10px; }
+    .hero-buyers i img {
+      position: absolute;
+      bottom: 0;
+      left: 50%;
+      transform: translateX(-50%); }
+  .hero-buyers p {
+    font-size: 14px;
+    margin: 0 auto; }
+  .hero-buyers.hub-banner {
+    background-image: url(../assets/images/bg/wizehub-bg.jpg); }
+
+.hub-container h2 {
+  position: relative; }
+  .hub-container h2:after {
+    content: "";
+    display: block;
+    height: 2px;
+    width: 30px;
+    position: absolute;
+    left: 50%;
+    margin-left: -11px;
+    bottom: 0;
+    background: #000;
+    border-bottom: 1px solid #000; }
+
+.app-card-container {
+  position: relative; }
+  .app-card-container h6 {
+    min-height: 32px; }
+  .app-card-container .sol-type {
+    border-left: 3px solid #ccc;
+    padding-left: 6px;
+    font-weight: 500;
+    font-size: 12px; }
+    .app-card-container .sol-type.blue {
+      border-color: #3789DC; }
+    .app-card-container .sol-type.yellow {
+      border-color: #FBD100; }
+    .app-card-container .sol-type.green {
+      border-color: #2ABF9F; }
+    .app-card-container .sol-type.pink {
+      border-color: #e5569c; }
+  .app-card-container .textBlock p {
+    font-size: 12px;
+    font-weight: 500; }
+  .app-card-container .pull-right {
+    float: right !important; }
+  .app-card-container .textBlock {
+    height: 147px;
+    overflow: hidden; }
+  .app-card-container .hover-content {
+    border-radius: 2px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    text-align: center;
+    opacity: 0;
+    transition: all 0.3s ease-in-out;
+    -webkit-transition: all 0.3s ease-in-out; }
+    .app-card-container .hover-content .btn {
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      color: #fff;
+      border: 1px solid #fff; }
+      .app-card-container .hover-content .btn:hover {
+        background: #fff;
+        color: #55595c;
+        font-weight: 500; }
+  .app-card-container:hover .hover-content {
+    opacity: 1; }

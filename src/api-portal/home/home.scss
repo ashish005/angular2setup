@@ -1,0 +1,165 @@
+@import "../../layout/variables";
+
+.enterprise-section{
+
+  position: relative;
+  z-index: 1;
+  margin-top:-360px;
+
+  &:before{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    left: 0px;
+    width: 99%;
+    // height: 100px;
+    background-color: #3789dc;
+    -ms-transform: rotate(7deg);
+    -webkit-transform: rotate(8deg);
+    transform: rotate(8deg);
+    box-shadow: 0px 0px 0px 100px #3789dc;
+  }
+  .bg-primary{
+    background-image:url('../assets/images/bg/bg2.jpg');
+    background-repeat: no-repeat;
+    background-position: left center;
+    color: #fff;
+    position: relative;
+
+    padding-bottom: 100px;
+
+    background-size: cover;
+    min-height: 900px;
+    z-index: 2;
+  }
+  .learn-text-color{
+    color:$brand-primary;
+  }
+}
+
+.home-jumbotron{
+  // height: calc( 100vh - 60px );
+  min-height: 550px;
+  background: url('../../../assets/images/bg/home-jumbotron.jpg') left center;
+  background-size: cover;
+  // justify-content : center;
+  // display: flex;
+  // align-items : center;
+  background-attachment : fixed;
+  h1{
+    line-height: normal;
+    font-size: 3.2rem;
+  }
+}
+
+
+
+.hexagon {
+  position: relative;
+  width: 100px;
+  height: 57.74px;
+  background-color: transparent;
+  margin: 28.87px 0;
+  border-left: solid 3px #fff;
+  border-right: solid 3px #fff;
+  display: inline-block;
+  //   -ms-transform: rotate(90deg); // IE 9
+  //  -webkit-transform: rotate(90deg); // Chrome, Safari, Opera
+  //  transform: rotate(90deg);
+
+  .has-icon{
+    display: inline-block;
+    -ms-transform: rotate(-90deg); // IE 9
+    -webkit-transform: rotate(-90deg); // Chrome, Safari, Opera
+    transform: rotate(-90deg);
+    height: 60px;
+    width: 60px;
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    background-repeat: no-repeat;
+  }
+
+}
+
+.hexagon:before,
+.hexagon:after {
+  content: "";
+  position: absolute;
+  z-index: 1;
+  width: 70.71px;
+  height: 70.71px;
+  -webkit-transform: scaleY(0.5774) rotate(-45deg);
+  -ms-transform: scaleY(0.5774) rotate(-45deg);
+  transform: scaleY(0.5774) rotate(-45deg);
+  background-color: inherit;
+  left: 11.6447px;
+}
+
+.hexagon:before {
+  top: -35.3553px;
+  border-top: solid 4.2426px #fff;
+  border-right: solid 4.2426px #fff;
+}
+
+.hexagon:after {
+  bottom: -35.3553px;
+  border-bottom: solid 4.2426px #fff;
+  border-left: solid 4.2426px #fff;
+}
+.custom-outline-black-btn{
+  color: #000;
+  border-color: #000;
+  background-color: transparent;
+
+  &:hover{
+    border-color:$brand-primary;
+    background: #fff;
+    color:$brand-primary;
+  }
+}
+
+.section-app-publisher{
+
+  ul{
+    li{
+      list-style: none;
+      position: relative;
+      &::before{
+        content: '';
+        width: 5px;
+        height: 5px;
+        background: $brand-primary;
+        margin: 7px 0 0 -12px;
+        -webkit-border-radius: 100%;
+        -moz-border-radius: 100%;
+        border-radius: 100%;
+        position: absolute;
+      }
+    }
+  }
+}
+
+
+@media (max-width: 991px) {
+
+  .mb-hide-icon{
+    display:none !important;
+  }
+
+}
+
+
+@media (max-width: 767px){
+
+  .enterprise-section{
+    margin-top:0px;
+    .bg-primary{
+      min-height: 500px;
+    }
+  }
+}

@@ -1,0 +1,29 @@
+:host {
+  display: block;
+  overflow: hidden; }
+
+:host [hidden] {
+  display: none; }
+
+.tag-info {
+  padding: 40px;
+  box-sizing: border-box;
+  background-color: white;
+  width: 60%; }
+  @media (max-width: 1100px) {
+    .tag-info {
+      width: 100%; } }
+
+.tag-info:after, .tag-info:before {
+  content: "";
+  display: table; }
+
+.tag-info h1 {
+  color: #0033a0;
+  text-transform: capitalize;
+  font-weight: normal;
+  margin-top: 0; }
+
+.methods {
+  display: block;
+  position: relative; }

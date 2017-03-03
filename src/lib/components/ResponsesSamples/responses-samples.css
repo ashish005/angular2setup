@@ -1,0 +1,30 @@
+:host {
+  overflow: hidden;
+  display: block; }
+
+header {
+  font-family: Montserrat;
+  font-size: 0.929em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #9fb4be;
+  text-transform: uppercase;
+  font-weight: normal; }
+
+:host /deep/ > tabs > ul li {
+  font-family: Montserrat;
+  font-size: 0.929em;
+  border-radius: 2px;
+  margin: 2px 0;
+  padding: 2px 8px 3px 8px;
+  color: #9fb4be;
+  line-height: 16px; }
+  :host /deep/ > tabs > ul li:hover {
+    color: #ffffff;
+    background-color: rgba(255, 255, 255, 0.1); }
+  :host /deep/ > tabs > ul li.active {
+    background-color: white;
+    color: #263238; }
+
+:host /deep/ tabs ul {
+  padding-top: 10px; }

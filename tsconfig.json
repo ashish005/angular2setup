@@ -1,0 +1,29 @@
+{
+  "compilerOptions": {
+    "experimentalDecorators": true,
+    "emitDecoratorMetadata": true,
+    "lib": ["es6", "dom"],
+    "module": "es6",
+    "target": "es5",
+    "noImplicitAny": false,
+    "sourceMap": true,
+    "pretty": true,
+    "moduleResolution": "node",
+    "types": [
+      "core-js",
+      "jasmine",
+      "should",
+      "requirejs"
+    ]
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "node_modules",
+    "dist"
+  ],
+  "awesomeTypescriptLoaderOptions": {
+    "resolveGlobs": true,
+    "forkChecker": true,
+    "useWebpackText": true
+  }
+}

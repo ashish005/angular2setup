@@ -1,0 +1,64 @@
+:host {
+  overflow: hidden;
+  display: block; }
+
+.action-buttons {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  transform: translateY(100%);
+  z-index: 3;
+  position: relative;
+  height: 2em;
+  line-height: 2em;
+  padding-right: 10px;
+  text-align: right;
+  margin-top: -1em; }
+  .action-buttons > span > a {
+    padding: 2px 10px;
+    color: #ffffff;
+    cursor: pointer; }
+    .action-buttons > span > a:hover {
+      background-color: #455b66; }
+
+.code-sample:hover > .action-buttons {
+  opacity: 1; }
+
+header {
+  font-family: Montserrat;
+  font-size: 0.929em;
+  text-transform: uppercase;
+  margin: 0;
+  color: #9fb4be;
+  text-transform: uppercase;
+  font-weight: normal;
+  margin-top: 20px; }
+
+:host /deep/ > tabs > ul li {
+  font-family: Montserrat;
+  font-size: .9em;
+  border-radius: 2px;
+  margin: 2px 0;
+  padding: 3px 10px 2px 10px;
+  line-height: 16px;
+  color: #9fb4be; }
+  :host /deep/ > tabs > ul li:hover {
+    background-color: rgba(255, 255, 255, 0.1);
+    color: #ffffff; }
+  :host /deep/ > tabs > ul li.active {
+    background-color: #ffffff;
+    color: #263238; }
+
+:host /deep/ tabs ul {
+  padding-top: 10px; }
+
+.code-sample pre {
+  overflow-x: auto;
+  word-break: break-all;
+  word-wrap: break-word;
+  white-space: pre-wrap;
+  margin-top: 0;
+  overflow-x: auto;
+  padding: 20px;
+  border-radius: 4px;
+  background-color: #222d32;
+  margin-bottom: 36px; }

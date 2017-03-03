@@ -1,0 +1,75 @@
+@charset "UTF-8";
+:host {
+  overflow: hidden;
+  display: block; }
+
+.zippy-title {
+  padding: 10px;
+  border-radius: 2px;
+  margin-bottom: 4px;
+  line-height: 1.5em;
+  background-color: #f2f2f2;
+  cursor: pointer; }
+  .zippy-success > .zippy-title {
+    color: #00aa13;
+    background-color: rgba(0, 170, 19, 0.08); }
+  .zippy-error > .zippy-title {
+    color: #e53935;
+    background-color: rgba(229, 57, 53, 0.06); }
+  .zippy-redirect > .zippy-title {
+    color: #263238;
+    background-color: rgba(38, 50, 56, 0.08); }
+  .zippy-info > .zippy-title {
+    color: #0033a0;
+    background-color: rgba(0, 51, 160, 0.08); }
+  .zippy-title /deep/ p {
+    font-weight: normal; }
+
+.zippy-indicator svg {
+  height: 1.2em;
+  width: 1.2em;
+  vertical-align: top;
+  transition: all 0.3s ease;
+  transform: rotateZ(-180deg); }
+
+.zippy-hidden > .zippy-title svg {
+  transform: rotateZ(0); }
+
+.zippy-success > .zippy-title polygon {
+  fill: #00aa13; }
+
+.zippy-error > .zippy-title polygon {
+  fill: #e53935; }
+
+.zippy-redirect > .zippy-title polygon {
+  fill: #263238; }
+
+.zippy-info > .zippy-title polygon {
+  fill: #0033a0; }
+
+span.zippy-indicator {
+  width: 1em;
+  font-size: 1.2em;
+  text-align: center;
+  display: inline-block;
+  float: left;
+  margin-right: 5px; }
+
+.zippy-content {
+  padding: 15px 0; }
+
+.zippy-empty .zippy-title {
+  cursor: default; }
+
+.zippy-empty .zippy-indicator svg {
+  display: none; }
+
+.zippy-empty .zippy-indicator:before {
+  content: "—";
+  font-weight: bold; }
+
+.zippy-empty .zippy-content {
+  display: none; }
+
+.zippy-hidden > .zippy-content {
+  display: none; }

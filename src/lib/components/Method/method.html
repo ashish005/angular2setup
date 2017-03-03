@@ -1,0 +1,42 @@
+<div class="method" *ngIf="method">
+    <div class="method-content">
+        <h2 class="method-header sharable-header">
+            <a class="share-link" href="#{{method.anchor}}"></a>{{method.summary}}
+        </h2>
+        <div class="method-tags" *ngIf="method.info.tags.length">
+            <a *ngFor="let tag of method.info.tags" attr.href="#tag/{{tag}}"> {{tag}} </a>
+        </div>
+        <p *ngIf="method.info.description" class="method-description"
+           [innerHtml]="method.info.description | marked">
+        </p>
+        <redoc-externalDocs [docs]="method.externalDocs"></redoc-externalDocs>
+        <div *ngIf="!isEditable">
+            <params-list pointer="{{pointer}}/parameters"></params-list>
+            <button type="button" class="btn btn-primary btn-xs" (click)="isEditable=true;">Try This Out</button>
+        </div>
+        <div *ngIf="isEditable">
+            <try-operation pointer="{{pointer}}/parameters"></try-operation>
+            <button type="button" class="btn btn-primary btn-xs" [disabled]="sentActive" (click)="sendData(this);sentActive=true;">Send</button>
+            <button type="button" class="btn btn-primary btn-xs" (click)="isEditable=false;">Close</button>
+        </div>
+        <responses-list pointer="{{pointer}}/responses"></responses-list>
+    </div>
+    <div class="method-samples">
+        <h4 class="method-params-subheader">Definition</h4>
+        <div class="method-endpoint">
+            <h5 class="http-method" [ngClass]="method.httpMethod">{{method.httpMethod}}</h5>
+          <span select-on-click>
+              <span class="method-api-url">{{method.apiUrl}}</span>
+              <span class="method-api-url-path">{{method.path}}</span>
+          </span>
+        </div>
+        <div>
+            <request-samples [pointer]="pointer" [schemaPointer]="method.bodyParam?._pointer">
+            </request-samples>
+        </div>
+        <div>
+            <br>
+            <responses-samples pointer="{{pointer}}/responses"></responses-samples>
+        </div>
+    </div>
+</div>
