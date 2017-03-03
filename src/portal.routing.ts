@@ -1,7 +1,9 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { APIPortalLayout } from './layout/api-portal.layout';
-import { HomeComponent, HubComponent, ContactComponent, CompanyComponent, PlatformComponent, APIDocComponent } from './api-portal/index';
+import { APIDocComponent } from './api-portal/index';
+import { HomeComponent, HubComponent, ContactComponent, CompanyComponent, PlatformComponent } from './wizni/index';
+import { PageNotFound } from './shared/index';
 
 const routes: Routes = [
   {
@@ -22,7 +24,8 @@ const routes: Routes = [
       {path: 'doc/:section/:id', component: APIDocComponent},
       {path: 'doc/:section', component: APIDocComponent},
     ]
-  }
+  },
+  { path: '**', component: PageNotFound }
 ];
 
 export const PortalRoutingModule: ModuleWithProviders = RouterModule.forRoot(routes, {useHash: true});

@@ -1,0 +1,95 @@
+@import "../../shared/variables";
+
+.login-bg {
+  background: #3f434f; /*$dark-bg-color*/
+  min-height: 100vh;
+}
+.login-wrapper {
+  color: #fff;
+  .logo-wrapper {
+    height: auto;
+    display: block;
+    h1 {
+      a {
+        background-image: url('../assets/img/wize-logo-lg@1x.png');
+        width: 100px;
+        height: 30px;
+        @media only screen and (-webkit-min-device-pixel-ratio: 2),
+        only screen and (min--moz-device-pixel-ratio: 2),
+        only screen and (-o-min-device-pixel-ratio: 2/1),
+        only screen and (min-device-pixel-ratio: 2),
+        only screen and (min-resolution: 192dpi),
+        only screen and (min-resolution: 2dppx) {
+          background-image: url('../assets/img/wize-logo-lg@2x.png');
+          background-size: 100px 30px;
+        }
+      }
+    }
+  }
+  .card {
+    max-width: 400px;
+    margin: 30px auto;
+    border: none;
+    border-bottom: 3px solid $text-color;
+    box-shadow: 0px 0px 3px rgba(0, 0, 0, 1);
+    .card-block {
+      padding: 25px 35px;
+    }
+    h3 {
+      font-weight: 300;
+      font-size: 22px;
+    }
+    a {
+      color: #6D6D6D;
+    }
+  }
+  > p {
+    a {
+      color: $text-color;
+      font-weight: 600;
+    }
+  }
+}
+
+@media (max-width: 767px) {
+  .footer {
+    position: relative;
+  }
+  .login-bg {
+    height: auto;
+  }
+}
+.signin-mode {
+  list-style: none;
+  margin: 30px 0px;
+  padding: 0px;
+  li {
+    + li {
+      margin-top: 30px;
+    }
+  }
+  a {
+    display: block;
+    border: 1px solid #ccc;
+    background-color: #f6f6f6;
+    font-weight: 900;
+    font-size: 26px;
+    padding: 20px 25px;
+    text-transform: uppercase;
+    text-decoration: none;
+    line-height: 1.4;
+    border-radius: 3px;
+    span {
+      font-size: 12px;
+      font-weight: 400;
+      display: block;
+      text-transform: lowercase;
+      color: #b3b3b3;
+    }
+    &:hover {
+      background-color: #6D6D6D;
+      color: #fff;
+      border-color: #434343;
+    }
+  }
+}

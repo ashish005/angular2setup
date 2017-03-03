@@ -107,7 +107,9 @@ module.exports = function (options) {
       new webpack.DefinePlugin({
         'IS_PRODUCTION': options.IS_PRODUCTION,
         'LIB_VERSION': VERSION,
-        'AOT': options.AOT
+        'AOT': options.AOT,
+        'SERVERURI':options.SERVERURI,
+        'AUTH0OPTIONS':options.AUTH0OPTIONS,
       }),
 
       new StringReplacePlugin()

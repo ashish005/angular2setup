@@ -16,6 +16,8 @@ declare module "*.css" {
 declare var LIB_VERSION: any;
 declare var IS_PRODUCTION: any;
 declare var AOT: any;
+declare var SERVERURI :string;
+declare var AUTH0OPTIONS:any;
 
 interface ErrorStackTraceLimit {
   stackTraceLimit: number;

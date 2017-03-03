@@ -111,6 +111,8 @@
     "zone.js": "^0.7.7"
   },
   "dependencies": {
-    "angular2-google-maps": "^0.17.0"
+    "angular2-google-maps": "^0.17.0",
+    "auth0-js": "^8.3.0",
+    "auth0-lock": "^10.12.1"
   }
 }

@@ -13,8 +13,12 @@ const IS_MODULE = process.env.IS_MODULE != null;
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js');
 
+const SERVERURI = process.env.SERVERURI;
+const AUTH0OPTIONS = process.env.AUTH0OPTIONS;
 const config = webpackMerge(commonConfig({
   IS_PRODUCTION: true,
+  SERVERURI:SERVERURI,
+  AUTH0OPTIONS:AUTH0OPTIONS,
   AOT: true
 }), {
   devtool: 'source-map',

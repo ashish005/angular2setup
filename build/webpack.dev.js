@@ -9,8 +9,16 @@ const IS_PRODUCTION = process.env.NODE_ENV === "production";
 const webpackMerge = require('webpack-merge'); // used to merge webpack configs
 const commonConfig = require('./webpack.common.js');
 
+const SERVERURI = 'http://localhost:8080';
+const AUTH0OPTIONS = {
+  clientId: 'jNn1V2ORu1rN1TzgEv1SvDldgnz18W0Y',
+  domain: 'anjanikumar2109.auth0.com'
+};
+
 module.exports = webpackMerge(commonConfig({
   IS_PRODUCTION: process.env.NODE_ENV === "production",
+  SERVERURI:SERVERURI,
+  AUTH0OPTIONS:AUTH0OPTIONS,
   AOT: false
 }), {
   devtool: '#inline-source-map',
@@ -26,7 +34,7 @@ module.exports = webpackMerge(commonConfig({
     watchOptions: {
       poll: true
     },
-    port: 9000,
+    port: 4000,
     hot: false,
     stats: 'errors-only'
   },
