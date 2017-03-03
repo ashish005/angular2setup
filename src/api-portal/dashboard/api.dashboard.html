@@ -1,0 +1,82 @@
+<section class="wrapper header-padd">
+    <nav class="navbar navbar-full px-0 py-1 navbar-fixed-top navbar-dark bg-inverse">
+        <div class="container">
+            <a class="navbar-brand py-0 logo-whitetxt-md" routerLink="../dashboard">Wizni</a>
+            <button class="navbar-toggler float-xs-right hidden-lg-up" type="button" data-toggle="collapse"
+                    data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+                    aria-label="Toggle navigation"></button>
+            <div class="clearfix hidden-lg-up"></div>
+            <div class="collapse clearfix navbar-toggleable-md" id="navbarResponsive">
+                <ul class="nav navbar-nav text-uppercase float-lg-right nav-main">
+                    <li class="nav-item mr-3" routerLinkActive="active">
+                        <a class="nav-link" routerLink="../dashboard">Documents</a>
+                    </li>
+                    <li class="nav-item pl-3 ml-0 login-link dropdown">
+                        <a class="nav-link dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">{{user?.profile?.name}}</a>
+                        <div class="dropdown-menu dropdown-menu-right" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" (click)="logout()">Log Out</a>
+                        </div>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    <div class="sub-header pt-2 pb-2">
+        <div class="container">
+            <div class="media">
+                <div class="media-body media-middle">
+                    <h1 class="h3 m-0">My Documents</h1>
+                </div>
+                <div class="media-body text-xs-right text-truncate media-middle">
+                    <ul class="list-inline m-0">
+                        <li class="align-middle list-inline-item">
+                            <filter-text (changed)="filterChanged($event)" placeholder="Search"></filter-text>
+                        </li>
+                        <li class="list-inline-item">
+                            <button class="btn btn-primary" (click)="addDocument()">Add Document</button>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="clearfix"></div>
+    <section class="dashboard-section pt-3">
+        <div class="container pb-3" style="min-height: calc( 100vh - 248px);">
+
+            <div *ngIf="filteredApps?.length <= 0" class="text-muted">
+                <p class="lead text-xs-center m-t-3 p-t-3">No Document's Available <br>
+                </p>
+            </div>
+            <div class="row m-t-2" *ngIf="filteredApps?.length">
+                <div class="col-xs-12 col-sm-6 col-md-4 col-lg-3" *ngFor="let doc of filteredApps">
+                    <div class="card app-card app-card-container mb-2">
+                        <div class="card-header media">
+                            <div class="media-body media-middle"><h6 class="myapp-tiles-heading weight-900 text-uppercase m-0">
+                                {{ doc.document?.name }}</h6>
+                            </div>
+                        </div>
+                        <div class="card-block app-card p-a-1" (click)="routeToLocation($event, doc)">
+                            <div class="textBlock">
+                                <p class="small m-0">Description: <span class="text-muted text-uppercase">{{doc.document?.description}}</span></p>
+                                <p class="small m-0">Created At: <span class="text-muted text-uppercase">{{doc.document?.createdAt | date }}</span></p>
+                                <p class="small m-0">Updated At: <span class="text-muted text-uppercase">{{doc.document?.updatedAt | date }}</span></p>
+                            </div>
+                        </div>
+                        <div class="card-footer" >
+                            <span (click)="deleteDocument($event, doc)" class="iconset-37" style="float: right;display: inline-block;"></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <footer class="footer pb-1">
+        <div class="container">
+            <p class="text-xs-center pt-2">
+                <small>&copy; 2016 Wizni, Inc. All Rights Reserved. Wizni is a Certified Diverse MBE Supplier.</small>
+            </p>
+        </div>
+    </footer>
+</section>
+<modal-placeholder></modal-placeholder>

@@ -5,9 +5,8 @@ import { HttpModule } from '@angular/http';
 import { PortalRoutingModule } from './portal.routing';
 import { PortalComponent } from './portal.component';
 import { APIPortalLayout } from './layout/api-portal.layout';
-import { PORTAL_DIRECTIVE } from './api-portal/index';
+import { APIPortalModule } from './api-portal/index';
 import { AgmCoreModule } from 'angular2-google-maps/core';
-import { RedocModule } from './lib/redoc.module';
 import { AuthModule } from './auth/index';
 import { PageNotFound } from './shared/page-not-found';
 import { WIZNI_DIRECTIVE } from './wizni/index';
@@ -22,13 +21,13 @@ import { IdentityService } from './auth/services/auth.identity.service';
     PortalRoutingModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyBkylB0fW9mpUW4j4OD-AphSZ-xiM2W3H0'}),
     AuthModule,
-    RedocModule
+    APIPortalModule
   ],
   providers:[
     AuthService, IdentityService,
     { provide: APP_ID, useValue: 'portal' },
   ],
-  declarations: [ PortalComponent, APIPortalLayout, PageNotFound, WIZNI_DIRECTIVE, PORTAL_DIRECTIVE ],
+  declarations: [ PortalComponent, APIPortalLayout, PageNotFound, WIZNI_DIRECTIVE ],
   bootstrap:[ PortalComponent ]
 })
 

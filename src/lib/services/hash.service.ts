@@ -6,7 +6,7 @@ import { BehaviorSubject } from 'rxjs/BehaviorSubject';
 
 @Injectable()
 export class Hash {
-  hashPathId = "#/api-portal/doc";
+  hashPathId = "#/docViewer";
   public value = new BehaviorSubject<string | null>(null);
   private noEmit:boolean = false;
   constructor(private location: PlatformLocation) {
