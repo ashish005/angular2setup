@@ -4,8 +4,7 @@ import { APIPortalModule } from '../index';
 import { APICreateDocComponent } from './popup-components/create-doc.component';
 
 @Component({
-    templateUrl: './api.dashboard.html',
-    styleUrls: ['./api.dashboard.scss']
+    templateUrl: './api-dashboard.html'
 })
 export class APIDashboardComponent {
     private modalRef : any = null;
@@ -24,4 +23,12 @@ export class APIDashboardComponent {
             this.modalRef = ref;
         })
     }
+
+    filteredApps:any=[];
+    user:any;
+
+    logout(){}
+
+
+    filterChanged($event){}
 }

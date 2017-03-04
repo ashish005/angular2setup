@@ -9,11 +9,8 @@ import { ModalPopup } from '../../../shared/model-popup.service';
 export class APICreateDocComponent {
   ok: Function; destroy: Function; closeModal: Function;
 
-  private apiInfo = {name :""};
-  private apiMethods : Array<any> = new Array();
-
   constructor(){
-    this.apiMethods = ['Get', 'Put', 'Post', 'Delete'];
+   
   }
 
   onCancel(): void{

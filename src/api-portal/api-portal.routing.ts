@@ -1,7 +1,7 @@
 import { ModuleWithProviders } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
 import { APIDocComponent } from './api-doc/api-doc.component';
-import { APIDashboardComponent } from './dashboard/api.dashboard';
+import { APIDashboardComponent } from './dashboard/api-dashboard';
 
 const routes: Routes = [
     {
